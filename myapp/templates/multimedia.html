@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<p>This is the multimedia page</p>
+<h3>Infographic</h3>
+{% for image in images %}
+    <img src="{% static image %}" alt="Infographic" width="600">
+{% endfor %}
+{% endblock %}
