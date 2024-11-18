@@ -4,7 +4,10 @@ from .models import Article
 
 # Create your views here.
 def home(request):
-    return render(request, "home.html")
+    images = ['images/globe.png']
+    videos = ['videos/galaxy.mp4']
+    gifs = ['videos/elf.gif']
+    return render(request, "home.html" , {'images': images , 'videos': videos , 'gifs': gifs})
 
 def articles(request):
     articles = Article.objects.all().order_by('-date')  # Fetch all articles, newest first
