@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,49 +8,73 @@
         Eco-Rangers
         {% endblock %}
     </title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
 </head>
 
 <body class="bg-gray-100">
-    <nav class="bg-white border-b border-gray-200 md:relative fixed top-0 left-0 right-0 z-10">
-        <div class="p-6 flex justify-between items-center w-full">
-            <span class="text-xl font-semibold text-gray-800" href="#">Eco-Rangers: Save the Planet!</span>
-            <button class="md:hidden block flex items-center text-gray-600 hover:text-gray-900" type="button" onclick="toggleMenu()" aria-label="Toggle navigation">
-                <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0V15z"/></svg>
+    <nav class="text-white fixed top-0 left-0 right-0 z-20 p-2 px-6 transition-all ease-in duration-500" id="navigation-full-screen">
+        <div class="bg-gray-800 py-4 lg:px-16 md:px-8 px-4 rounded-lg flex justify-between items-center w-full">
+            <span class="md:text-xl text-md font-semibold" href="#">Eco-Rangers: Save the Planet!</span>
+            <button class="lg:hidden block flex items-center text-gray-600 hover:text-gray-900" type="button" onclick="toggleMenu()" aria-label="Toggle navigation">
+                <svg class="h-4 w-4 fill-current hover:text-white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0V15z"/></svg>
             </button>
-            <div class="md:block hidden w-1/2">
+            <div class="lg:block hidden w-1/2">
                 <div class="flex items-center justify-end w-full h-full px-5">
-                    <ul class="flex gap-4">
-                        <li><a class="text-gray-600 hover:text-gray-900" href="home">Home</a></li>
-                        <li><a class="text-gray-600 hover:text-gray-900" href="articles">Articles</a></li>
-                        <li><a class="text-gray-600 hover:text-gray-900" href="activities">Activities</a></li>
-                        <li><a class="text-gray-600 hover:text-gray-900" href="multimedia">Multimedia</a></li>
-                        <li><a class="text-gray-600 hover:text-gray-900" href="about">About</a></li>
-                        <li><a class="text-gray-600 hover:text-gray-900" href="contact">Contact</a></li>
+                    <ul class="flex gap-8">
+                        <li><a class="hover:text-gray-400" href="home">Home</a></li>
+                        <li><a class="hover:text-gray-400" href="articles">Articles</a></li>
+                        <li><a class="hover:text-gray-400" href="activities">Activities</a></li>
+                        <li><a class="hover:text-gray-400" href="multimedia">Multimedia</a></li>
+                        <li><a class="hover:text-gray-400" href="about">About</a></li>
+                        <li><a class="hover:text-gray-400" href="contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
-    <div class="w-full h-dvh fixed top-0 left-[100%] z-10 bg-white border-b border-gray-200 transition-all ease-in-out duration-300" id="navigation">
+    <div class="w-full h-dvh fixed top-0 left-[100%] z-20 bg-white border-b border-gray-200 transition-all ease-in-out duration-300" id="navigation">
         <div class="flex items-center justify-center w-full h-full px-5">
             <ul class="flex flex-col gap-4">
-                <li><span class="text-gray-600 hover:text-gray-900 cursor-pointer" onclick="toggleMenu()">X</span></li>
-                <li><a class="text-gray-600 hover:text-gray-900" href="home">Home</a></li>
-                <li><a class="text-gray-600 hover:text-gray-900" href="articles">Articles</a></li>
-                <li><a class="text-gray-600 hover:text-gray-900" href="activities">Activities</a></li>
-                <li><a class="text-gray-600 hover:text-gray-900" href="multimedia">Multimedia</a></li>
-                <li><a class="text-gray-600 hover:text-gray-900" href="about">About</a></li>
-                <li><a class="text-gray-600 hover:text-gray-900" href="contact">Contact</a></li>
+                <li class="flex items-center gap-2 text-gray-600 hover:text-gray-900 cursor-pointer" onclick="toggleMenu()"><i class="fas fa-times"></i>Close</li>
+                <li>
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="home">
+                        <i><i class="fas fa-home"></i></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="articles">
+                        <i><i class="fas fa-newspaper"></i></i>Articles
+                    </a>
+                </li>
+                <li>
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="activities">
+                        <i><i class="fas fa-running"></i></i>Activities
+                    </a>
+                </li>
+                <li>
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="multimedia">
+                        <i><i class="fas fa-images"></i></i>Multimedia
+                    </a>
+                </li>
+                <li>
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="about">
+                        <i><i class="fas fa-info-circle"></i></i>About
+                    </a>
+                </li>
+                <li>
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="contact">
+                        <i><i class="fas fa-phone"></i></i> 
+                        Contact
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
-    <div class="md:pt-0 pt-20">{% block content %} {% endblock %}</div>
+    <div class="absolute top-0 left-0 right-0">{% block content %} {% endblock %}</div>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById("navigation");
-            nav.classList.toggle("left-[0]");
-        }
-    </script>
+    {% load static %}
+    <script src="{% static 'main.js' %}"></script>
 </body>
 </html>
+
