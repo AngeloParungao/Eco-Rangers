@@ -74,3 +74,27 @@ function toggleMenu() {
     const nav = document.getElementById("navigation");
     nav.classList.toggle("left-[0]");
 }
+
+// Toggle the topics
+function toggleTopics(articleId) {
+  const seeTopics = document.getElementById(`see-topics-${articleId}`);
+    const closeTopics = document.getElementById(`close-topics-${articleId}`);
+    const topics = document.getElementById(`topics-${articleId}`);
+    
+    // Toggle visibility of the 'see' and 'close' buttons
+    seeTopics.classList.toggle("hidden");
+    closeTopics.classList.toggle("hidden");
+
+    // Toggle the visibility and transition of the topics container
+    topics.classList.toggle("max-h-0"); // Collapse the element (invisible)
+    topics.classList.toggle("max-h-full"); // Expand the element (visible)
+
+    // If the topics container is hidden, ensure overflow is also hidden
+    if (topics.classList.contains("max-h-0")) {
+        topics.classList.add("overflow-hidden");
+    } else {
+        topics.classList.remove("overflow-hidden");
+    }
+}
+
+
