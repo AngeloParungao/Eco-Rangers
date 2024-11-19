@@ -1,5 +1,7 @@
+from ast import Sub
+from re import sub
 from django.shortcuts import render, HttpResponse
-from .models import Article
+from .models import Article, Subtopic
 
 
 # Create your views here.
@@ -11,7 +13,15 @@ def home(request):
 
 def articles(request):
     articles = Article.objects.all().order_by('-date')  # Fetch all articles, newest first
-    return render(request, "articles.html" , {'articles': articles})
+    
+    # Create a list of tuples with article and its related subtopics
+    article_subtopics = [
+        (article, Subtopic.objects.filter(article=article)) for article in articles
+    ]
+    
+    return render(request, "articles.html", {
+        'article_subtopics': article_subtopics
+    })
 
 def activities(request):
     return render(request, "activities.html")
