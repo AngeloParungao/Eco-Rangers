@@ -77,24 +77,23 @@ function toggleMenu() {
 
 // Toggle the topics
 function toggleTopics(articleId) {
-  const seeTopics = document.getElementById(`see-topics-${articleId}`);
+    const seeTopics = document.getElementById(`see-topics-${articleId}`);
     const closeTopics = document.getElementById(`close-topics-${articleId}`);
     const topics = document.getElementById(`topics-${articleId}`);
-    
+
     // Toggle visibility of the 'see' and 'close' buttons
     seeTopics.classList.toggle("hidden");
     closeTopics.classList.toggle("hidden");
 
-    // Toggle the visibility and transition of the topics container
-    topics.classList.toggle("max-h-0"); // Collapse the element (invisible)
-    topics.classList.toggle("max-h-full"); // Expand the element (visible)
-
-    // If the topics container is hidden, ensure overflow is also hidden
+    // Toggle visibility and transition for topics
     if (topics.classList.contains("max-h-0")) {
-        topics.classList.add("overflow-hidden");
+        topics.classList.remove("max-h-0");
+        topics.classList.add("max-h-screen");
     } else {
-        topics.classList.remove("overflow-hidden");
+        topics.classList.remove("max-h-screen");
+        topics.classList.add("max-h-0");
     }
 }
+
 
 
