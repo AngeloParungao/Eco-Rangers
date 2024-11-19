@@ -1,6 +1,6 @@
 from ast import Sub
 from re import sub
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import get_object_or_404, render
 from .models import Article, Subtopic
 
 
@@ -22,6 +22,11 @@ def articles(request):
     return render(request, "articles.html", {
         'article_subtopics': article_subtopics
     })
+
+def subtopic_detail(request, article_slug, subtopic_id):
+    article = get_object_or_404(Article, slug=article_slug)
+    subtopic = get_object_or_404(Subtopic, id=subtopic_id, article=article)
+    return render(request, 'subtopic_detail.html', {'article': article, 'subtopic': subtopic})
 
 def activities(request):
     return render(request, "activities.html")
