@@ -23,12 +23,12 @@
             <div class="lg:block hidden w-1/2">
                 <div class="flex items-center justify-end w-full h-full px-5">
                     <ul class="flex gap-8 text-sm">
-                        <li><a class="hover:text-gray-400" href="home">Home</a></li>
-                        <li><a class="hover:text-gray-400" href="articles">Articles</a></li>
-                        <li><a class="hover:text-gray-400" href="activities">Activities</a></li>
-                        <li><a class="hover:text-gray-400" href="multimedia">Multimedia</a></li>
-                        <li><a class="hover:text-gray-400" href="about">About</a></li>
-                        <li><a class="hover:text-gray-400" href="contact">Contact</a></li>
+                        <li><a class="hover:text-gray-400" href="{% url 'home' %}">Home</a></li>
+                        <li><a class="hover:text-gray-400" href="{% url 'articles' %}">Articles</a></li>
+                        <li><a class="hover:text-gray-400" href="{% url 'activities' %}">Activities</a></li>
+                        <li><a class="hover:text-gray-400" href="{% url 'multimedia' %}">Multimedia</a></li>
+                        <li><a class="hover:text-gray-400" href="{% url 'about' %}">About</a></li>
+                        <li><a class="hover:text-gray-400" href="{% url 'contact' %}">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,33 +39,33 @@
             <ul class="flex flex-col gap-4">
                 <li class="flex items-center gap-2 text-gray-600 hover:text-gray-900 cursor-pointer" onclick="toggleMenu()"><i class="fas fa-times"></i>Close</li>
                 <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="home">
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'home' %}">
                         <i><i class="fas fa-home"></i></i>
                         Home
                     </a>
                 </li>
                 <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="articles">
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'articles' %}">
                         <i><i class="fas fa-newspaper"></i></i>Articles
                     </a>
                 </li>
                 <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="activities">
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'activities' %}">
                         <i><i class="fas fa-running"></i></i>Activities
                     </a>
                 </li>
                 <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="multimedia">
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'multimedia' %}">
                         <i><i class="fas fa-images"></i></i>Multimedia
                     </a>
                 </li>
                 <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="about">
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'about' %}">
                         <i><i class="fas fa-info-circle"></i></i>About
                     </a>
                 </li>
                 <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="contact">
+                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'contact' %}">
                         <i><i class="fas fa-phone"></i></i> 
                         Contact
                     </a>
