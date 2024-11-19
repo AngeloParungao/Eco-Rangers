@@ -30,7 +30,7 @@
                     </div>
                 </div>
 
-                <div class="w-full overflow-hidden max-h-0 transition-all ease-in-out duration-1000"
+                <div class="w-full overflow-hidden max-h-0 transition-all duration-500 ease-in-out"
                     id="topics-{{ article.id }}">
                     <div class="p-2 text-[#333333]">
                         <p class="text-md text-center p-4">Topics:</p>
@@ -41,7 +41,9 @@
                                 <img src="{{ subtopic.image.url }}" alt="{{ subtopic.title }}"
                                     class="w-[3rem] h-[3rem] rounded-md">
                                 {% endif %}
-                                <p class="text-md text-center p-4">{{ subtopic.title }}</p>
+                                <a href="{% url 'subtopic_detail' article.slug subtopic.id %}" class="text-md text-center p-4">
+                                    {{ subtopic.title }}
+                                </a>
                             </div>
                             {% endfor %}
                         </div>
