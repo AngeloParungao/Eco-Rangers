@@ -8,19 +8,21 @@
         Eco-Rangers
         {% endblock %}
     </title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-[#d9f6e5]">
     <nav class="text-white fixed top-0 left-0 right-0 z-20 p-2 px-6 transition-all ease-in duration-500" id="navigation-full-screen">
         <div class="bg-gray-800 py-4 lg:px-16 md:px-8 px-4 rounded-lg flex justify-between items-center w-full">
-            <span class="md:text-xl text-md font-semibold" href="#">Eco-Rangers: Save the Planet!</span>
+            <span class="md:text-lg text-md font-semibold" href="#">Eco-Rangers: Save the Planet!</span>
             <button class="lg:hidden block flex items-center text-gray-600 hover:text-gray-900" type="button" onclick="toggleMenu()" aria-label="Toggle navigation">
                 <svg class="h-4 w-4 fill-current hover:text-white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0V15z"/></svg>
             </button>
             <div class="lg:block hidden w-1/2">
                 <div class="flex items-center justify-end w-full h-full px-5">
-                    <ul class="flex gap-8">
+                    <ul class="flex gap-8 text-sm">
                         <li><a class="hover:text-gray-400" href="home">Home</a></li>
                         <li><a class="hover:text-gray-400" href="articles">Articles</a></li>
                         <li><a class="hover:text-gray-400" href="activities">Activities</a></li>
@@ -71,7 +73,7 @@
             </ul>
         </div>
     </div>
-    <div class="absolute top-0 left-0 right-0">{% block content %} {% endblock %}</div>
+    <div class="absolute top-0 left-0 right-0 h-full">{% block content %} {% endblock %}</div>
     <script src="https://cdn.tailwindcss.com"></script>
     {% load static %}
     <script src="{% static 'main.js' %}"></script>
