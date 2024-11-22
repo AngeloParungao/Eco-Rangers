@@ -1,57 +1,106 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<div class="flex flex-col items-center py-20">
-    <section class="w-full h-full flex flex-col items-center justify-center">
-        <h2>Articles</h2>
-        <div class="w-full flex flex-col items-center justify-center gap-4">
-            {% for article, subtopics in article_subtopics %}
-            <div class="w-[80%] p-4 bg-white rounded-lg shadow-lg">
-                <div class="w-full">
-                    {% if article.image %}
-                    <img src="{{ article.image.url }}" class="w-full h-[25rem]" alt="{{ article.title }}">
-                    {% endif %}
-                    <div class="p-4 text-[#333333]">
-                        <h5 class="text-2xl font-bold">{{ article.title }}</h5>
-                        <p class="text-gray-400 text-sm">Published on {{ article.date|date:"F d, Y" }}</p>
-                        <p class="text-md text-center p-4">{{ article.content|truncatewords:20 }}</p>
-                        <button
-                            class="flex items-center gap-2 bg-blue-400 hover:bg-blue-500 py-2 px-4 text-white text-sm rounded-full"
-                            id="see-topics-{{ article.id }}" onclick="toggleTopics('{{ article.id }}')">
-                            See Topics
-                            <i class="fas fa-arrow-down"></i>
-                        </button>
-                        <button
-                            class="hidden flex items-center gap-2 bg-red-400 hover:bg-red-500 py-2 px-4 text-white text-sm rounded-full"
-                            id="close-topics-{{ article.id }}" onclick="toggleTopics('{{ article.id }}')">
-                            Close Topics
-                            <i class="fas fa-arrow-up"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="w-full overflow-hidden max-h-0 transition-all duration-500 ease-in-out"
-                    id="topics-{{ article.id }}">
-                    <div class="p-2 text-[#333333]">
-                        <p class="text-md text-center p-4">Topics:</p>
-                        <div class="flex flex-col gap-4">
-                            {% for subtopic in subtopics %}
-                            <div class="flex items-center p-2 bg-[#a8d8e8] rounded-lg shadow-md">
-                                {% if subtopic.image %}
-                                <img src="{{ subtopic.image.url }}" alt="{{ subtopic.title }}"
-                                    class="w-[3rem] h-[3rem] rounded-md">
-                                {% endif %}
-                                <a href="{% url 'subtopic_detail' article.slug subtopic.id %}" class="text-md text-center p-4">
-                                    {{ subtopic.title }}
-                                </a>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+{% extends 'base.html' %} {% block content %}
+<div class="flex flex-col items-center py-10 md:py-20">
+  <section class="w-full h-full flex flex-col items-center justify-center">
+    <h2
+      class="text-3xl sm:text-4xl font-extrabold text-[#F9CD6A] mb-8 text-center"
+    >
+      Fun Articles for Kids!
+    </h2>
+    <div class="w-full flex flex-col items-center justify-center gap-6">
+      {% for article, subtopics in article_subtopics %}
+      <div
+        class="w-[90%] sm:w-[80%] md:w-[60%] p-6 bg-[#9CBBFC] rounded-lg shadow-xl"
+      >
+        <div class="w-full">
+          {% if article.image %}
+          <img
+            src="{{ article.image.url }}"
+            class="w-full h-[15rem] sm:h-[20rem] object-cover rounded-lg"
+            alt="{{ article.title }}"
+          />
+          {% endif %}
+          <div class="p-4">
+            <h5
+              class="text-2xl sm:text-3xl font-bold text-[#F9CD6A] drop-shadow-md mb-2"
+            >
+              {{ article.title }}
+            </h5>
+            <p class="text-[#D8EFF7] text-sm sm:text-md mb-4">
+              Published on {{ article.date|date:"F d, Y" }}
+            </p>
+            <p class="text-lg text-center text-[#4840A3] mb-4">
+              {{ article.content|truncatewords:20 }}
+            </p>
+            <button
+              class="flex items-center gap-2 bg-[#D8EFF7] hover:bg-[#4840A3] hover:text-[#D8EFF7] py-2 sm:py-3 px-4 sm:px-6 text-[#4840A3] text-md sm:text-lg rounded-full"
+              id="see-topics-{{ article.id }}"
+              onclick="toggleTopics('{{ article.id }}')"
+            >
+              Explore Topics
+              <i class="fas fa-arrow-down"></i>
+            </button>
+            <button
+              class="hidden flex items-center gap-2 bg-[#D8EFF7] hover:bg-[#4840A3] hover:text-[#D8EFF7] py-2 sm:py-3 px-4 sm:px-6 text-[#4840A3] text-md sm:text-lg rounded-full"
+              id="close-topics-{{ article.id }}"
+              onclick="toggleTopics('{{ article.id }}')"
+            >
+              Close Topics
+              <i class="fas fa-arrow-up"></i>
+            </button>
+          </div>
         </div>
-    </section>
+
+        <div
+          class="w-full overflow-hidden max-h-0 transition-all duration-800 ease-in-out"
+          id="topics-{{ article.id }}"
+        >
+          <div class="p-4">
+            <div class="flex items-center justify-start gap-4 mb-4">
+              <span class="text-3xl sm:text-4xl font-bold text-[#4840A3]">
+                Fun Topics to Explore:
+              </span>
+              <svg
+                class="w-6 h-6 font-bold text-[#F9CD6A] animate-pulse"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              ></svg>
+            </div>
+            <div class="flex flex-wrap gap-4 mt-4 justify-center">
+              {% for subtopic in subtopics %}
+              <div
+                class="flex flex-col items-center p-4 w-full sm:w-[50%] md:w-[20%] lg:w-[25%] rounded-full bg-[#D8EFF7] h-[15rem] sm:h-auto"
+              >
+                <a
+                  href="{% url 'subtopic_detail' article.slug subtopic.id %}"
+                  class="relative block w-full h-[15rem] rounded-full overflow-hidden group"
+                >
+                  {% if subtopic.image %}
+                  <img
+                    src="{{ subtopic.image.url }}"
+                    alt="{{ subtopic.title }}"
+                    class="w-full h-full object-cover rounded-full transition-all duration-300"
+                  />
+                  {% endif %}
+                  <div
+                    class="absolute inset-0 bg-[#333] bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="text-white text-sm sm:text-lg font-semibold text-center"
+                    >
+                      {{ subtopic.title }}
+                    </span>
+                  </div>
+                </a>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
 </div>
 {% endblock %}
