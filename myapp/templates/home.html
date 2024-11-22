@@ -1,70 +1,145 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <div class="flex flex-col items-center">
-    <!-- Hero Section -->
-<section class="relative w-full h-screen flex flex-col items-center justify-center">
+  <!-- Hero Section -->
+  <section
+    class="relative w-full h-screen flex flex-col items-center justify-center"
+  >
     <!-- Video Background -->
     <video autoplay loop muted class="absolute w-full h-full object-cover">
-        <source src="{% static 'videos/galaxy.mp4' %}" type="video/mp4">
-        Your browser does not support the video tag.
+      <source src="{% static 'videos/galaxy.mp4' %}" type="video/mp4" />
+      Your browser does not support the video tag.
     </video>
 
     <!-- Content -->
-    <div class="w-full pt-20 z-10 opacity-0 transition-all ease-in duration-500" id="welcome-text">
-        <div class="w-full flex flex-col items-center justify-center text-center pt-8">
-            <h1 class="md:text-6xl text-2xl font-bold text-white">Welcome to Our Learning Place!</h1>
-            <p class="md:text-xl text-md text-gray-500">Dive into exciting topics about nature, science, and the environment!</p>
-        </div>
+    <div
+      class="w-full pt-20 z-10 opacity-0 transition-all ease-in duration-500"
+      id="welcome-text"
+    >
+      <div
+        class="w-full flex flex-col items-center justify-center text-center gap-4 pt-8"
+      >
+        <h1 class="md:text-6xl text-2xl font-bold text-[#F9CD6A]">
+          Welcome to Eco-Rangers!
+        </h1>
+        <p class="md:text-xl text-md text-[#9CBBFC]">
+          Join us in saving the planet and learning about our amazing Earth!
+        </p>
+      </div>
     </div>
-    <div class="w-full h-[100%] flex flex-col items-center justify-center overflow-hidden z-10 transition-all ease-in duration-500" id="globe-container">
-        <div id="elf-container">
-            <div class="flex flex-col bg-white rounded-full px-6 py-2 gap-1">
-                <span id="elf-message" class="text-sm font-semibold text-black text-center">Olla, Rangers!</span>
-                <button class="bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-full" id="elf-button" onclick="toggleLoad()">Let's Go</button>
-            </div>
-            <div class="flex h-[5rem] items-center justify-center mt-1">
-                <img src="{% static 'videos/elf.gif' %}" alt="Elf" loading="lazy" class="h-[6rem]" id="elf-image">
-            </div>
+    <div
+      class="w-full h-[100%] flex flex-col items-center justify-center overflow-hidden z-10 transition-all ease-in duration-500"
+      id="globe-container"
+    >
+      <div id="elf-container">
+        <div class="flex flex-col bg-white rounded-full px-6 py-2 gap-1">
+          <span
+            id="elf-message"
+            class="text-sm font-semibold text-black text-center"
+            >Hello, Eco-Warriors!</span
+          >
+          <button
+            class="bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-full"
+            id="elf-button"
+            onclick="toggleLoad()"
+          >
+            Start Exploring
+          </button>
         </div>
-        <div class="w-[60rem] h-[80%]">
-            <img src="{% static 'images/globe.png' %}" alt="Globe" loading="lazy"
-                class="w-full animate-spin [animation-duration:100s]" id="globe-image">
+        <div class="flex h-[5rem] items-center justify-center mt-1">
+          <img
+            src="{% static 'videos/elf.gif' %}"
+            alt="Elf"
+            loading="lazy"
+            class="h-[6rem]"
+            id="elf-image"
+          />
         </div>
+      </div>
+      <div class="w-[60rem] h-[80%]">
+        <img
+          src="{% static 'images/globe.png' %}"
+          alt="Globe"
+          loading="lazy"
+          class="w-full animate-spin [animation-duration:100s]"
+          id="globe-image"
+        />
+      </div>
     </div>
-</section>
+  </section>
 
-
-    <!-- Featured Topics Section -->
-    <section class="mt-12 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-gray-900">Explore Our Topics</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            <div class="bg-white rounded-lg shadow-lg p-4">
-                <img src="{% static 'images/topic1.png' %}" alt="Topic 1" class="w-full h-auto">
-                <h3 class="mt-4 text-2xl font-bold text-gray-900">Nature Wonders</h3>
-                <p class="mt-2 text-gray-600">Discover amazing facts about our natural world.</p>
-                <a href="#" class="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-700">Learn More</a>
-            </div>
-            <div class="bg-white rounded-lg shadow-lg p-4">
-                <img src="{% static 'images/topic2.png' %}" alt="Topic 2" class="w-full h-auto">
-                <h3 class="mt-4 text-2xl font-bold text-gray-900">Science Experiments</h3>
-                <p class="mt-2 text-gray-600">Try fun and easy science experiments at home.</p>
-                <a href="#" class="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-700">Learn More</a>
-            </div>
-            <div class="bg-white rounded-lg shadow-lg p-4">
-                <img src="{% static 'images/topic3.png' %}" alt="Topic 3" class="w-full h-auto">
-                <h3 class="mt-4 text-2xl font-bold text-gray-900">Planet Earth</h3>
-                <p class="mt-2 text-gray-600">Understand how our planet works and changes.</p>
-                <a href="#" class="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-700">Learn More</a>
-            </div>
+  <!-- About Eco-Rangers Section -->
+  <section class="mt-12 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto p-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="flex flex-col items-start justify-center">
+          <h2 class="text-4xl font-bold text-[#F9CD6A]">
+            Eco-Rangers: Save the Planet!
+          </h2>
+          <p class="mt-4 text-lg text-[#D8EFF7]">
+            Eco-Rangers is a community inspiring kids to protect the planet
+            through fun activities, lessons, and challenges. Together, we can
+            grow a new generation of eco-heroes ready to make a difference!
+          </p>
         </div>
-    </section>
+        <div class="flex items-center justify-center">
+          <img
+            src="{% static 'images/PLANET.png' %}"
+            alt="Planet"
+            loading="lazy"
+            class="w-[20rem] h-[20rem]"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <h2 class="text-4xl font-bold text-center text-[#F9CD6A]">About Us</h2>
+      <p class="mt-4 text-lg text-center text-[#D8EFF7]">
+        Eco-Rangers is a community of passionate individuals, educators, and
+        environmentalists who share a common goal: to inspire and educate young
+        minds about the importance of protecting our planet. We believe that by
+        engaging kids in interactive activities, lessons, and challenges, we can
+        empower them to become the next generation of environmental leaders.
+      </p>
+    </div>
 
-    <!-- Call to Action Section -->
-    <section class="mt-12 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-gray-900">Join Our Learning Community</h2>
-        <p class="mt-2 text-lg text-gray-600">Be part of a community exploring science and nature together.</p>
-        <a href="#" class="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-700">Sign Up</a>
-    </section>
+    <!-- Mission Statement -->
+    <div class="mt-10 mb-10 p-6 text-center">
+      <h3 class="text-3xl font-bold text-[#F9CD6A]">Our Mission</h3>
+      <p class="mt-4 text-[#D8EFF7]">
+        At Eco-Rangers, our mission is to educate young minds about climate
+        change, environmental preservation, and sustainable living. We believe
+        kids can make a difference, one small action at a time!
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center items-center gap-6">
+        <div
+          class="w-40 h-40 bg-green-200 rounded-full flex items-center justify-center"
+        >
+          <img
+            src="{% static 'images/RECYCLE.png' %}"
+            alt="Recycle"
+            class="w-24 h-24"
+          />
+        </div>
+        <div
+          class="w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center"
+        >
+          <img
+            src="{% static 'images/EARTH.png' %}"
+            alt="Earth"
+            class="w-24 h-24"
+          />
+        </div>
+        <div
+          class="w-40 h-40 bg-yellow-200 rounded-full flex items-center justify-center"
+        >
+          <img
+            src="{% static 'images/SUN.png' %}"
+            alt="Sun"
+            class="w-24 h-24"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 {% endblock %}

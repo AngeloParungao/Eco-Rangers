@@ -1,82 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-        {% block title %}
-        Eco-Rangers
-        {% endblock %}
-    </title>
+    <title>{% block title %} Eco-Rangers {% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
-</head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="bg-[#d9f6e5]">
-    <nav class="text-white fixed top-0 left-0 right-0 z-20 p-2 px-6 transition-all ease-in duration-500" id="navigation-full-screen">
-        <div class="bg-gray-800 py-4 lg:px-16 md:px-8 px-4 rounded-lg flex justify-between items-center w-full">
-            <span class="md:text-lg text-md font-semibold" href="#">Eco-Rangers: Save the Planet!</span>
-            <button class="lg:hidden block flex items-center text-gray-600 hover:text-gray-900" type="button" onclick="toggleMenu()" aria-label="Toggle navigation">
-                <svg class="h-4 w-4 fill-current hover:text-white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0V15z"/></svg>
-            </button>
-            <div class="lg:block hidden w-1/2">
-                <div class="flex items-center justify-end w-full h-full px-5">
-                    <ul class="flex gap-8 text-sm">
-                        <li><a class="hover:text-gray-400" href="{% url 'home' %}">Home</a></li>
-                        <li><a class="hover:text-gray-400" href="{% url 'articles' %}">Articles</a></li>
-                        <li><a class="hover:text-gray-400" href="{% url 'activities' %}">Activities</a></li>
-                        <li><a class="hover:text-gray-400" href="{% url 'multimedia' %}">Multimedia</a></li>
-                        <li><a class="hover:text-gray-400" href="{% url 'about' %}">About</a></li>
-                        <li><a class="hover:text-gray-400" href="{% url 'contact' %}">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div class="w-full h-dvh fixed top-0 left-[100%] z-20 bg-white border-b border-gray-200 transition-all ease-in-out duration-300" id="navigation">
-        <div class="flex items-center justify-center w-full h-full px-5">
-            <ul class="flex flex-col gap-4">
-                <li class="flex items-center gap-2 text-gray-600 hover:text-gray-900 cursor-pointer" onclick="toggleMenu()"><i class="fas fa-times"></i>Close</li>
-                <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'home' %}">
-                        <i><i class="fas fa-home"></i></i>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'articles' %}">
-                        <i><i class="fas fa-newspaper"></i></i>Articles
-                    </a>
-                </li>
-                <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'activities' %}">
-                        <i><i class="fas fa-running"></i></i>Activities
-                    </a>
-                </li>
-                <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'multimedia' %}">
-                        <i><i class="fas fa-images"></i></i>Multimedia
-                    </a>
-                </li>
-                <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'about' %}">
-                        <i><i class="fas fa-info-circle"></i></i>About
-                    </a>
-                </li>
-                <li>
-                    <a class="flex gap-2 text-gray-600 hover:text-gray-900" href="{% url 'contact' %}">
-                        <i><i class="fas fa-phone"></i></i> 
-                        Contact
-                    </a>
-                </li>
+  <body class="bg-[#4840A3]">
+    <nav
+      class="text-white fixed top-0 left-0 right-0 z-20 p-2 px-6 transition-all ease-in duration-500"
+      id="navigation-full-screen"
+    >
+      <div
+        class="bg-[#D8EFF7] text-[#4840A3] py-4 lg:px-16 md:px-8 px-4 rounded-lg flex justify-between items-center w-full"
+      >
+        <span class="md:text-lg text-md font-semibold" href="#"
+          >Eco-Rangers: Save the Planet!</span
+        >
+        <button
+          class="lg:hidden block flex items-center text-[#4840A3] hover:text-gray-900"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Toggle navigation"
+        >
+          <svg
+            class="h-4 w-4 fill-current hover:text-white"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0V15z" />
+          </svg>
+        </button>
+        <div class="lg:block hidden w-1/2">
+          <div class="flex items-center justify-end w-full h-full px-5">
+            <ul class="flex gap-8 text-sm">
+              <li>
+                <a class="hover:text-[#F9CD6A]" href="{% url 'home' %}">Home</a>
+              </li>
+              <li>
+                <a class="hover:text-[#F9CD6A]" href="{% url 'articles' %}"
+                  >Articles</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-[#F9CD6A]" href="{% url 'activities' %}"
+                  >Activities</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-[#F9CD6A]" href="{% url 'multimedia' %}"
+                  >Multimedia</a
+                >
+              </li>
             </ul>
+          </div>
         </div>
+      </div>
+    </nav>
+    <div
+      class="w-full h-dvh fixed top-0 left-[100%] z-20 bg-[#D8EFF7] transition-all ease-in-out duration-300"
+      id="navigation"
+    >
+      <div class="flex items-center justify-center w-full h-full px-5">
+        <ul class="flex flex-col gap-4">
+          <li
+            class="flex items-center gap-2 text-[#4840A3] hover:text-gray-900 cursor-pointer"
+            onclick="toggleMenu()"
+          >
+            <i class="fas fa-times text-[#4840A3]"></i>Close
+          </li>
+          <li>
+            <a
+              class="flex gap-2 text-[#4840A3] hover:text-gray-900"
+              href="{% url 'home' %}"
+            >
+              <i><i class="fas fa-home text-[#4840A3]"></i></i>
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex gap-2 text-[#4840A3] hover:text-gray-900"
+              href="{% url 'articles' %}"
+            >
+              <i><i class="fas fa-newspaper text-[#4840A3]"></i></i>Articles
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex gap-2 text-[#4840A3] hover:text-gray-900"
+              href="{% url 'activities' %}"
+            >
+              <i><i class="fas fa-running text-[#4840A3]"></i></i>Activities
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex gap-2 text-[#4840A3] hover:text-gray-900"
+              href="{% url 'multimedia' %}"
+            >
+              <i><i class="fas fa-images text-[#4840A3]"></i></i>Multimedia
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="absolute top-0 left-0 right-0 h-full">{% block content %} {% endblock %}</div>
+    <div class="absolute top-0 left-0 right-0 h-full">
+      {% block content %} {% endblock %}
+    </div>
     <script src="https://cdn.tailwindcss.com"></script>
     {% load static %}
     <script src="{% static 'main.js' %}"></script>
-</body>
+  </body>
 </html>
-
