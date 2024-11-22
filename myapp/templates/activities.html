@@ -1,11 +1,44 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
+<div class="flex flex-col items-center py-10 md:py-20">
+  <!-- Heading Section -->
+  <h2
+    class="text-3xl sm:text-4xl font-extrabold text-[#F9CD6A] mb-8 text-center"
+  >
+    Fun Activities for Kids!
+  </h2>
 
+  <!-- Activity Description -->
+  <div class="text-center mb-8">
+    <p class="text-lg sm:text-xl text-[#D8EFF7] font-semibold">
+      Dive into this fun activity and help keep the ocean clean! Enjoy this
+      interactive game and have fun while learning.
+    </p>
+  </div>
 
-<p>This is the activities page</p>
-<iframe id="item-direct-container" class="item-direct-container resizable" width="800" height="450" allow="autoplay"
-    allowfullscreen="" frameborder="0" scrolling="no"
-    data-src="https://html5.gamedistribution.com/a2f91e31ff624a41aae98ea783784bea/?gd_sdk_referrer_url=https%3A%2F%2Fwww.y8.com%2Fgames%2Fclean_ocean&amp;key=y8&amp;value=default"
-    src="https://html5.gamedistribution.com/a2f91e31ff624a41aae98ea783784bea/?gd_sdk_referrer_url=https%3A%2F%2Fwww.y8.com%2Fgames%2Fclean_ocean&amp;key=y8&amp;value=default"
-    style="display: block;"></iframe>
+  <!-- Game Embedding Section -->
+  <div class="flex justify-center items-center mb-10">
+    <iframe
+      id="item-direct-container"
+      class="item-direct-container resizable rounded-lg shadow-lg"
+      width="800"
+      height="450"
+      allow="autoplay"
+      allowfullscreen=""
+      frameborder="0"
+      scrolling="no"
+      data-src="https://html5.gamedistribution.com/a2f91e31ff624a41aae98ea783784bea/?gd_sdk_referrer_url=https%3A%2F%2Fwww.y8.com%2Fgames%2Fclean_ocean&amp;key=y8&amp;value=default"
+      src="https://html5.gamedistribution.com/a2f91e31ff624a41aae98ea783784bea/?gd_sdk_referrer_url=https%3A%2F%2Fwww.y8.com%2Fgames%2Fclean_ocean&amp;key=y8&amp;value=default"
+      style="display: block"
+    ></iframe>
+  </div>
+
+  <!-- Call to Action Button Section -->
+  <div class="text-center mt-8">
+    <button
+      class="bg-[#4840A3] text-white font-bold py-2 px-6 rounded-full hover:bg-[#F9CD6A] hover:text-[#4840A3] transition-all"
+    >
+      Explore More Activities!
+    </button>
+  </div>
+</div>
 {% endblock %}

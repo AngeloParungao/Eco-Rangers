@@ -18,7 +18,7 @@
       id="navigation-full-screen"
     >
       <div
-        class="bg-[#D8EFF7] text-[#4840A3] py-4 lg:px-16 md:px-8 px-4 rounded-lg flex justify-between items-center w-full"
+        class="bg-[#D8EFF7] text-[#4840A3] py-4 lg:px-16 md:px-8 px-4 rounded-lg flex justify-between items-center w-full shadow-md"
       >
         <span class="md:text-lg text-md font-semibold" href="#"
           >Eco-Rangers: Save the Planet!</span
@@ -41,20 +41,20 @@
         <div class="lg:block hidden w-1/2">
           <div class="flex items-center justify-end w-full h-full px-5">
             <ul class="flex gap-8 text-sm">
-              <li>
+              <li id="home-link" class="nav-item">
                 <a class="hover:text-[#F9CD6A]" href="{% url 'home' %}">Home</a>
               </li>
-              <li>
+              <li id="articles-link" class="nav-item">
                 <a class="hover:text-[#F9CD6A]" href="{% url 'articles' %}"
                   >Articles</a
                 >
               </li>
-              <li>
+              <li id="activities-link" class="nav-item">
                 <a class="hover:text-[#F9CD6A]" href="{% url 'activities' %}"
                   >Activities</a
                 >
               </li>
-              <li>
+              <li id="multimedia-link" class="nav-item">
                 <a class="hover:text-[#F9CD6A]" href="{% url 'multimedia' %}"
                   >Multimedia</a
                 >
@@ -71,42 +71,42 @@
       <div class="flex items-center justify-center w-full h-full px-5">
         <ul class="flex flex-col gap-4">
           <li
-            class="flex items-center gap-2 text-[#4840A3] hover:text-gray-900 cursor-pointer"
+            class="flex items-center gap-2 text-[#4840A3] hover:text-gray-900 cursor-pointer nav-item"
             onclick="toggleMenu()"
+            id="close-menu"
           >
             <i class="fas fa-times text-[#4840A3]"></i>Close
           </li>
-          <li>
-            <a
-              class="flex gap-2 text-[#4840A3] hover:text-gray-900"
-              href="{% url 'home' %}"
-            >
-              <i><i class="fas fa-home text-[#4840A3]"></i></i>
-              Home
+          <li
+            class="flex gap-2 text-[#4840A3] hover:text-gray-900 nav-item"
+            id="mobile-home-link"
+          >
+            <a href="{% url 'home' %}">
+              <i class="fas fa-home text-[#4840A3]"></i> Home
             </a>
           </li>
-          <li>
-            <a
-              class="flex gap-2 text-[#4840A3] hover:text-gray-900"
-              href="{% url 'articles' %}"
-            >
-              <i><i class="fas fa-newspaper text-[#4840A3]"></i></i>Articles
+          <li
+            class="flex gap-2 text-[#4840A3] hover:text-gray-900 nav-item"
+            id="mobile-articles-link"
+          >
+            <a href="{% url 'articles' %}">
+              <i class="fas fa-newspaper text-[#4840A3]"></i> Articles
             </a>
           </li>
-          <li>
-            <a
-              class="flex gap-2 text-[#4840A3] hover:text-gray-900"
-              href="{% url 'activities' %}"
-            >
-              <i><i class="fas fa-running text-[#4840A3]"></i></i>Activities
+          <li
+            class="flex gap-2 text-[#4840A3] hover:text-gray-900 nav-item"
+            id="mobile-activities-link"
+          >
+            <a href="{% url 'activities' %}">
+              <i class="fas fa-running text-[#4840A3]"></i> Activities
             </a>
           </li>
-          <li>
-            <a
-              class="flex gap-2 text-[#4840A3] hover:text-gray-900"
-              href="{% url 'multimedia' %}"
-            >
-              <i><i class="fas fa-images text-[#4840A3]"></i></i>Multimedia
+          <li
+            class="flex gap-2 text-[#4840A3] hover:text-gray-900 nav-item"
+            id="mobile-multimedia-link"
+          >
+            <a href="{% url 'multimedia' %}">
+              <i class="fas fa-images text-[#4840A3]"></i> Multimedia
             </a>
           </li>
         </ul>
@@ -118,5 +118,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     {% load static %}
     <script src="{% static 'main.js' %}"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+
+        navItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            navItems.forEach((i) =>
+              i.classList.remove("underline", "font-bold")
+            );
+            this.classList.add("underline", "font-bold");
+          });
+        });
+
+        // Optionally, highlight the current page if it's already active
+        const currentUrl = window.location.pathname;
+        navItems.forEach((item) => {
+          const link = item.querySelector("a");
+          if (link && link.href.includes(currentUrl)) {
+            item.classList.add("underline", "font-bold");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
