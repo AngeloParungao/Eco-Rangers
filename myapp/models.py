@@ -1,6 +1,8 @@
-# models.py
+from email.mime import image
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
+
 
 class Article(models.Model):
     title = models.CharField(max_length=255)
@@ -29,18 +31,35 @@ class Subtopic(models.Model):
 
 
 class Activity(models.Model):
+    subtopic = models.ForeignKey(Subtopic, on_delete=models.CASCADE, related_name='activities')
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.title} ({self.subtopic.title})"
+
+
+class ActivityContent(models.Model):
     ACTIVITY_TYPES = [
         ('game', 'Game'),
         ('quiz', 'Quiz'),
         ('discussion', 'Discussion'),
     ]
-
-    subtopic = models.ForeignKey(Subtopic, on_delete=models.CASCADE, related_name='activities')
+    activity = models.ForeignKey(Activity, on_delete=models.CASCADE, related_name='contents')
+    activity_type = models.CharField(max_length=50, choices=ACTIVITY_TYPES, default='game')
     title = models.CharField(max_length=255)
-    activity_type = models.CharField(max_length=50, choices=ACTIVITY_TYPES)
-    description = models.TextField(blank=True, null=True)
-    content = models.TextField(blank=True, null=True)
-    pdf_file = models.FileField(upload_to='activities/pdf/', blank=True, null=True)
+    content = RichTextField()
+    image = models.ImageField(upload_to='activities/images/', blank=True, null=True)
 
     def __str__(self):
-        return f"{self.title} ({self.get_activity_type_display()})"
+        return f"{self.title} ({self.get_activity_type_display()} for {self.activity.title})"
+
+
+
+class ActivityPDF(models.Model):
+    activity = models.ForeignKey(Activity, on_delete=models.CASCADE, related_name='pdfs')
+    pdf_file = models.FileField(upload_to='activities/pdf/')
+    description = models.CharField(max_length=255, blank=True, null=True)  # Optional description for the PDF
+
+    def __str__(self):
+        return f"PDF for {self.activity.title}: {self.pdf_file.name}"

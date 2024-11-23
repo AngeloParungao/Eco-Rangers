@@ -27,9 +27,16 @@ def articles(request):
 
 
 def subtopic_detail(request, article_slug, subtopic_id):
+    # Fetch the article using the slug
     article = get_object_or_404(Article, slug=article_slug)
+
+    # Fetch the subtopic for the specific article using both subtopic_id and article
     subtopic = get_object_or_404(Subtopic, id=subtopic_id, article=article)
+
+    # Get all activities related to the subtopic
     activities = subtopic.activities.all()
+
+    # Return the rendered response with relevant context
     return render(request, 'subtopic_detail.html', {
         'article': article,
         'subtopic': subtopic,

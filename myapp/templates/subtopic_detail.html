@@ -12,19 +12,27 @@
   <div class="mt-4">
     <h3>{{ activity.title }}</h3>
     <p>{{ activity.description }}</p>
-    <div>
-      {% if activity.activity_type == 'game' %}
-        {{ activity.content | safe }}
-      {% elif activity.activity_type == 'quiz' %}
-        {{ activity.content | safe }}
-      {% elif activity.activity_type == 'discussion' %}
-        {{ activity.content | safe }}
-      {% endif %}
+  
+    <!-- Iterate through related ActivityContents -->
+    {% for content in activity.contents.all %}
+    <div class="content-block">
+      <p>{{ content.title }}</p>
+  
+      <!-- Check if the content's activity_type is 'game' -->
+      <div>
+        {% if content.activity_type == 'game' %}
+          {{ content.content|safe }}
+        {% endif %}
+      </div>
     </div>
-    {% if activity.pdf_file %}
-      <a href="{{ activity.pdf_file.url }}" class="text-blue-500">Download PDF</a>
+    {% endfor %}
+  
+    {% if activity.pdfs.exists %}
+    <a href="{{ activity.pdfs.first.pdf_file.url }}" class="text-blue-500">Download PDF</a>
     {% endif %}
   </div>
   {% endfor %}
+
+
 </div>
 {% endblock %}
