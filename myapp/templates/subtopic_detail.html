@@ -7,5 +7,21 @@
     class="w-[30%] h-[15rem]"
   />
   <p>{{ subtopic.description }}</p>
+
+  {% for activity in activities %}
+  <div class="mt-4">
+    <h3>{{ activity.title }}</h3>
+    <p>{{ activity.description }}</p>
+    <div>
+      {% if activity.activity_type == 'game' %}
+        {{ activity.content | safe }}
+      {% elif activity.activity_type == 'quiz' %}
+        {{ activity.content | safe }}
+      {% elif activity.activity_type == 'discussion' %}
+        {{ activity.content | safe }}
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}
