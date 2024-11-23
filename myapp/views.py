@@ -29,8 +29,12 @@ def articles(request):
 def subtopic_detail(request, article_slug, subtopic_id):
     article = get_object_or_404(Article, slug=article_slug)
     subtopic = get_object_or_404(Subtopic, id=subtopic_id, article=article)
-    return render(request, 'subtopic_detail.html', {'article': article, 'subtopic': subtopic})
-
+    activities = subtopic.activities.all()
+    return render(request, 'subtopic_detail.html', {
+        'article': article,
+        'subtopic': subtopic,
+        'activities': activities
+    })
 
 def activities(request):
     return render(request, "activities.html")
