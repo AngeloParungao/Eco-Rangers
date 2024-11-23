@@ -21,6 +21,9 @@
         {{ activity.content | safe }}
       {% endif %}
     </div>
+    {% if activity.pdf_file %}
+      <a href="{{ activity.pdf_file.url }}" class="text-blue-500">Download PDF</a>
+    {% endif %}
   </div>
   {% endfor %}
 </div>
