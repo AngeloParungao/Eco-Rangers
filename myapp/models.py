@@ -39,6 +39,7 @@ class Activity(models.Model):
     title = models.CharField(max_length=255)
     activity_type = models.CharField(max_length=50, choices=ACTIVITY_TYPES)
     description = models.TextField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.title} ({self.get_activity_type_display()})"
