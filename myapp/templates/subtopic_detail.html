@@ -1,38 +1,82 @@
 {% extends 'base.html' %} {% block content %}
-<div class="flex flex-col items-center pt-14">
-  <h2>{{ subtopic.title }}</h2>
-  <img
-    src="{{ subtopic.image.url }}"
-    alt="{{ subtopic.title }}"
-    class="w-[30%] h-[15rem]"
-  />
-  <p>{{ subtopic.description }}</p>
-
-  {% for activity in activities %}
-  <div class="mt-4">
-    <h3>{{ activity.title }}</h3>
-    <p>{{ activity.description }}</p>
-  
-    <!-- Iterate through related ActivityContents -->
-    {% for content in activity.contents.all %}
-    <div class="content-block">
-      <p>{{ content.title }}</p>
-  
-      <!-- Check if the content's activity_type is 'game' -->
-      <div>
-        {% if content.activity_type == 'game' %}
-          {{ content.content|safe }}
-        {% endif %}
+<div class="flex flex-col items-center py-10 md:py-20">
+  <section class="w-full h-full flex flex-col items-center justify-center">
+    <h2
+      class="text-3xl sm:text-4xl font-extrabold text-[#F9CD6A] pt-20 mb-8 text-center"
+    >
+      {{ subtopic.title }}
+    </h2>
+    <div
+      class="flex flex-col items-center justify-center w-full md:w-3/4 md:p-8"
+    >
+      <div class="rounded-md p-4">
+        <img
+          src="{{ subtopic.image.url }}"
+          alt="{{ subtopic.title }}"
+          class="w-full h-[35rem] object-cover rounded-lg"
+        />
+        <p class="text-lg text-center text-[#9CBBFC] mt-4 px-4">
+          {{ subtopic.description }}
+        </p>
       </div>
     </div>
+    {% for activity in activities %}
+    <div class="mt-8 p-6 w-full md:w-3/4">
+      <h3 class="text-2xl font-semibold text-[#F9CD6A]">
+        {{ activity.title }}
+      </h3>
+      <p class="text-[#D8EFF7] mt-2">{{ activity.description }}</p>
+
+      <!-- Iterate through related ActivityContents -->
+      {% for content in activity.contents.all %}
+      <div class="content-block mt-4 p-4 bg-[#D8EFF7] rounded-lg">
+        <p class="text-lg font-bold text-[#4840A3]">{{ content.title }}</p>
+
+        <!-- Check if the content's activity_type is 'game' -->
+        <div class="mt-2 text-[#4840A3]">
+          {% if content.activity_type == 'game' %}
+          <div class="game-content">{{ content.content|safe }}</div>
+          {% else %}
+          <div>{{ content.content|safe }}</div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+
+      <!-- Display PDF link if it exists -->
+      {% if activity.pdfs.exists %}
+      <div class="mt-6 text-center">
+        <!-- Label for the PDF Download -->
+        <p class="text-lg font-semibold text-[#F9CD6A] mb-4">
+          Download the Activity PDF:
+        </p>
+
+        <!-- PDF Download Button -->
+        <a
+          href="{{ activity.pdfs.first.pdf_file.url }}"
+          class="inline-block bg-[#9CBBFC] text-[#4840A3] py-3 px-6 rounded-full hover:bg-[#F9CD6A] hover:text-[#4840A3] transition duration-300 flex items-center justify-center transform hover:scale-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+            />
+          </svg>
+          Download Now
+        </a>
+      </div>
+
+      {% endif %}
+    </div>
     {% endfor %}
-  
-    {% if activity.pdfs.exists %}
-    <a href="{{ activity.pdfs.first.pdf_file.url }}" class="text-blue-500">Download PDF</a>
-    {% endif %}
-  </div>
-  {% endfor %}
-
-
+  </section>
 </div>
 {% endblock %}
