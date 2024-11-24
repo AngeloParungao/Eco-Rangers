@@ -6,10 +6,13 @@ from .models import Article, Subtopic
 
 # Create your views here.
 def home(request):
+    nature_images = ['images/nature/nature.png', 'images/nature/nature2.png', 
+                     'images/nature/nature3.png', 'images/nature/nature4.png', 
+                     'images/nature/nature5.png', 'images/nature/nature6.png',]
     images = ['images/globe.png']
     videos = ['videos/galaxy.mp4']
     gifs = ['videos/elf.gif']
-    return render(request, "home.html", {'images': images, 'videos': videos, 'gifs': gifs})
+    return render(request, "home.html", {'images': images, 'videos': videos, 'gifs': gifs, 'nature_images': nature_images})
 
 
 def articles(request):
