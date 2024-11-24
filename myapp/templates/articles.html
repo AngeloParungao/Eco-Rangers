@@ -56,7 +56,7 @@
         >
           <div class="p-4">
             <div class="flex items-center justify-start gap-4 mb-4">
-              <span class="text-3xl sm:text-4xl font-bold text-[#4840A3]">
+              <span class="md:text-3xl text-xl font-bold text-[#4840A3]">
                 Fun Topics to Explore:
               </span>
               <svg
@@ -67,14 +67,14 @@
                 xmlns="http://www.w3.org/2000/svg"
               ></svg>
             </div>
-            <div class="flex flex-wrap gap-4 mt-4 justify-center">
+            <div class="flex lg:flex-row flex-col gap-4 mt-4 justify-center">
               {% for subtopic in subtopics %}
               <div
-                class="flex flex-col items-center p-4 w-full sm:w-[50%] md:w-[20%] lg:w-[25%] rounded-full bg-[#D8EFF7] h-[15rem] sm:h-auto"
+                class="flex flex-col items-center p-4 lg:w-[15rem] w-full lg:h-[15rem] h-[10rem] rounded-full bg-[#D8EFF7]"
               >
                 <a
                   href="{% url 'subtopic_detail' article.slug subtopic.id %}"
-                  class="relative block w-full h-[15rem] rounded-full overflow-hidden group"
+                  class="relative block w-full h-full rounded-full overflow-hidden group"
                 >
                   {% if subtopic.image %}
                   <img
@@ -84,7 +84,7 @@
                   />
                   {% endif %}
                   <div
-                    class="absolute inset-0 bg-[#333] bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    class="absolute inset-0 bg-[#333] bg-opacity-50 flex justify-center items-center lg:opacity-0 opacity-100 group-hover:opacity-100  transition-opacity duration-300"
                   >
                     <span
                       class="text-white text-sm sm:text-lg font-semibold text-center"
