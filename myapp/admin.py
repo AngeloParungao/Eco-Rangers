@@ -5,7 +5,7 @@ from .models import Article, Subtopic, Activity, ActivityContent, ActivityPDF
 class ActivityContentInline(admin.TabularInline):
     model = ActivityContent
     extra = 1  # Add one empty form for content sections
-    fields = ('title', 'activity_type', 'content')  # Fields to display in the inline
+    fields = ('title', 'activity_type', 'content', 'image')  # Fields to display in the inline
 
 
 class ActivityPDFInline(admin.TabularInline):
