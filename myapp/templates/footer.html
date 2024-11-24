@@ -1,0 +1,116 @@
+{% load static %}
+<footer
+  class="bg-no-repeat bg-center bg-cover text-[#4840A3] py-8"
+  style="background-image: url('{% static 'images/bg-svg.svg' %}')"
+>
+  <div
+    class="max-w-screen-lg mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8"
+  >
+    <!-- Left Section -->
+    <div class="text-center md:text-left">
+      <h3 class="text-lg font-bold mb-2">
+        <img
+          src="{% static 'images/logo.png' %}"
+          alt="Eco-Rangers Logo"
+          class="inline h-12 w-12 mr-2"
+        />
+        Eco-Rangers: Save the Planet!
+      </h3>
+      <p class="text-sm font-medium">
+        Protecting our Earth with fun and adventure!
+      </p>
+      <p class="text-sm font-medium mt-2">
+        &copy; 2024 Eco-Rangers. All rights reserved.
+      </p>
+    </div>
+
+    <!-- Middle Section -->
+    <div class="flex flex-col items-center md:items-start">
+      <h4 class="text-md font-bold mb-3">Quick Links:</h4>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a
+            class="hover:text-[#F9CD6A] transition-colors flex items-center gap-2"
+            href="{% url 'home' %}"
+          >
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li>
+          <a
+            class="hover:text-[#F9CD6A] transition-colors flex items-center gap-2"
+            href="{% url 'articles' %}"
+          >
+            <i class="fas fa-newspaper"></i> Articles
+          </a>
+        </li>
+        <li>
+          <a
+            class="hover:text-[#F9CD6A] transition-colors flex items-center gap-2"
+            href="{% url 'activities' %}"
+          >
+            <i class="fas fa-running"></i> Activities
+          </a>
+        </li>
+        <li>
+          <a
+            class="hover:text-[#F9CD6A] transition-colors flex items-center gap-2"
+            href="{% url 'multimedia' %}"
+          >
+            <i class="fas fa-images"></i> Multimedia
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right Section -->
+    <div class="text-center">
+      <h4 class="text-md font-bold mb-3">Follow Us:</h4>
+      <div class="flex gap-4">
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          class="hover:text-[#F9CD6A] transition-colors"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook-f text-2xl"></i>
+        </a>
+        <a
+          href="https://twitter.com"
+          target="_blank"
+          class="hover:text-[#F9CD6A] transition-colors"
+          aria-label="Twitter"
+        >
+          <i class="fab fa-twitter text-2xl"></i>
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          class="hover:text-[#F9CD6A] transition-colors"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram text-2xl"></i>
+        </a>
+        <a
+          href="https://youtube.com"
+          target="_blank"
+          class="hover:text-[#F9CD6A] transition-colors"
+          aria-label="YouTube"
+        >
+          <i class="fab fa-youtube text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="mt-6 text-center">
+    <p class="text-sm font-medium flex items-center justify-center gap-2">
+      <i class="fas fa-star text-[#F9CD6A]"></i>
+      Made with care and creativity for kids around the world!
+    </p>
+    <p class="text-sm font-medium flex items-center justify-center gap-2">
+      <i class="fas fa-rocket text-[#F9CD6A]"></i> Join the adventure today!
+    </p>
+  </div>
+</footer>
