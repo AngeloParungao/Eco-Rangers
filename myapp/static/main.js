@@ -96,4 +96,18 @@ function toggleTopics(articleId) {
 }
 
 
+function openModal(src) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const downloadButton = document.getElementById('downloadButton');
 
+    modalImage.src = src; // Set the modal image source
+    downloadButton.href = src; // Set the download button link to the image source
+
+    modal.classList.remove('hidden');
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+}
