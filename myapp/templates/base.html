@@ -36,13 +36,13 @@
           >
         </span>
         <button
-          class="lg:hidden block flex items-center text-[#4840A3] hover:text-gray-900"
+          class="lg:hidden block flex items-center text-[#4840A3] hover:text-[#F9CD6A]"
           type="button"
           onclick="toggleMenu()"
           aria-label="Toggle navigation"
         >
           <svg
-            class="h-4 w-4 fill-current hover:text-white"
+            class="h-4 w-4 fill-current hover:text-[#F9CD6A]"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -53,22 +53,36 @@
         <div class="lg:block hidden w-1/2">
           <div class="flex items-center justify-end w-full h-full px-5">
             <ul class="flex gap-8 text-sm">
-              <li id="home-link" class="nav-item">
-                <a class="hover:text-[#F9CD6A]" href="{% url 'home' %}">Home</a>
-              </li>
-              <li id="articles-link" class="nav-item">
-                <a class="hover:text-[#F9CD6A]" href="{% url 'articles' %}"
-                  >Articles</a
+              <li
+                class="nav-item focus:text-[#F9CD6A] hover:text-[#F9CD6A]"
+                id="home-link"
+              >
+                <a class="hover:text-[#F9CD6A]" href="{% url 'home' %}">
+                  <i class="fas fa-home text-[#4840A3]"></i>Home</a
                 >
               </li>
-              <li id="activities-link" class="nav-item">
+              <li
+                class="nav-item focus:text-[#F9CD6A] hover:text-[#F9CD6A]"
+                id="articles-link"
+              >
+                <a class="hover:text-[#F9CD6A]" href="{% url 'articles' %}">
+                  <i class="fas fa-newspaper text-[#4840A3]"></i> Articles</a
+                >
+              </li>
+              <li
+                class="nav-item focus:text-[#F9CD6A] hover:text-[#F9CD6A]"
+                id="activities-link"
+              >
                 <a class="hover:text-[#F9CD6A]" href="{% url 'activities' %}"
-                  >Activities</a
+                  ><i class="fas fa-running text-[#4840A3]"></i> Activities</a
                 >
               </li>
-              <li id="multimedia-link" class="nav-item">
+              <li
+                class="nav-item focus:text-[#F9CD6A] hover:text-[#F9CD6A]"
+                id="multimedia-link"
+              >
                 <a class="hover:text-[#F9CD6A]" href="{% url 'multimedia' %}"
-                  >Multimedia</a
+                  ><i class="fas fa-images text-[#4840A3]"></i> Multimedia</a
                 >
               </li>
             </ul>
@@ -83,14 +97,14 @@
       <div class="flex items-center justify-center w-full h-full px-5">
         <ul class="flex flex-col gap-4">
           <li
-            class="flex items-center gap-2 text-[#4840A3] hover:text-gray-900 cursor-pointer nav-item"
+            class="flex items-center gap-2 text-[#4840A3] hover:text-gray-900 focus:text-[#F9CD6A] cursor-pointer nav-item"
             onclick="toggleMenu()"
             id="close-menu"
           >
             <i class="fas fa-times text-[#4840A3]"></i>Close
           </li>
           <li
-            class="flex gap-2 text-[#4840A3] hover:text-gray-900 nav-item"
+            class="flex gap-2 text-[#4840A3] hover:text-gray-900 focus:text-[#F9CD6A] nav-item"
             id="mobile-home-link"
           >
             <a href="{% url 'home' %}">
@@ -98,7 +112,7 @@
             </a>
           </li>
           <li
-            class="flex gap-2 text-[#4840A3] hover:text-gray-900 nav-item"
+            class="flex gap-2 text-[#4840A3] hover:text-gray-900 focus:text-[#F9CD6A] nav-item"
             id="mobile-articles-link"
           >
             <a href="{% url 'articles' %}">
@@ -106,7 +120,7 @@
             </a>
           </li>
           <li
-            class="flex gap-2 text-[#4840A3] hover:text-gray-900 nav-item"
+            class="flex gap-2 text-[#4840A3] hover:text-gray-900 focus:text-[#F9CD6A] nav-item"
             id="mobile-activities-link"
           >
             <a href="{% url 'activities' %}">
@@ -114,7 +128,7 @@
             </a>
           </li>
           <li
-            class="flex gap-2 text-[#4840A3] hover:text-gray-900 nav-item"
+            class="flex gap-2 text-[#4840A3] hover:text-gray-900 focus:text-[#F9CD6A] nav-item"
             id="mobile-multimedia-link"
           >
             <a href="{% url 'multimedia' %}">
@@ -137,10 +151,8 @@
 
         navItems.forEach((item) => {
           item.addEventListener("click", function () {
-            navItems.forEach((i) =>
-              i.classList.remove("underline", "font-bold")
-            );
-            this.classList.add("underline", "font-bold");
+            navItems.forEach((i) => i.classList.remove("font-bold"));
+            this.classList.add("font-bold");
           });
         });
 
@@ -149,7 +161,7 @@
         navItems.forEach((item) => {
           const link = item.querySelector("a");
           if (link && link.href.includes(currentUrl)) {
-            item.classList.add("underline", "font-bold");
+            item.classList.add("font-bold");
           }
         });
       });
