@@ -1,11 +1,21 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% load static %}{% block content %}
 <div class="flex flex-col items-center py-10 md:py-20">
   <section class="w-full h-full flex flex-col items-center justify-center">
-    <h2
-      class="text-3xl sm:text-4xl font-extrabold text-[#F9CD6A] mb-8 text-center"
-    >
-      Fun Articles for Kids!
-    </h2>
+    <div class="flex items-center justify-center gap-4 mb-8">
+      <img
+        src="{% static 'images/articles-logo.png' %}"
+        alt="Eco-Ranger"
+        class="h-12 w-12"
+      />
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-[#F9CD6A]">
+        Fun Articles for Kids!
+      </h2>
+      <img
+        src="{% static 'images/articles-logo.png' %}"
+        alt="Eco-Ranger"
+        class="h-12 w-12"
+      />
+    </div>
     <div class="w-full flex flex-col items-center justify-center gap-6">
       {% for article, subtopics in article_subtopics %}
       <div
@@ -29,7 +39,7 @@
               Published on {{ article.date|date:"F d, Y" }}
             </p>
             <p class="text-lg text-center text-[#4840A3] mb-4">
-              {{ article.content|truncatewords:20 }}
+              {{ article.content }}
             </p>
             <button
               class="flex items-center gap-2 bg-[#D8EFF7] hover:bg-[#4840A3] hover:text-[#D8EFF7] py-2 sm:py-3 px-4 sm:px-6 text-[#4840A3] text-md sm:text-lg rounded-full"
