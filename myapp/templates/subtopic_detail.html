@@ -15,33 +15,37 @@
           alt="{{ subtopic.title }}"
           class="w-full h-[35rem] object-cover rounded-lg"
         />
-        <p class="text-lg text-center text-[#9CBBFC] mt-4 px-4">
+        <p class="text-xl text-center text-[#9CBBFC] mt-4 px-4">
           {{ subtopic.description }}
         </p>
       </div>
     </div>
     {% for activity in activities %}
     <div class="mt-8 p-6 w-full md:w-3/4">
-      <h3 class="text-2xl font-semibold text-[#F9CD6A]">
+      <h3 class="text-3xl font-semibold text-[#F9CD6A]">
         {{ activity.title }}
       </h3>
-      <p class="text-[#D8EFF7] mt-2">{{ activity.description }}</p>
+      <p class="text-[#D8EFF7] text-xl mt-2">{{ activity.description }}</p>
 
       <!-- Iterate through related ActivityContents -->
       {% for content in activity.contents.all %}
       <div class="content-block mt-4 p-4 bg-[#D8EFF7] rounded-lg">
-        <p class="text-lg font-bold text-[#4840A3]">{{ content.title }}</p>
-
         <!-- Check if the content's activity_type is 'game' -->
         <div class="mt-2 text-[#4840A3]">
-          {% if content.activity_type == 'game' %}
-          <div class="game-content">{{ content.content|safe }}</div>
-          {% else %}
-          <div>{{ content.content|safe }}</div>
-            {% if content.image %}
-              <img src="{{ content.image.url }}" alt="">
-            {% endif %}
-          {% endif %}
+          <div class="text-lg font-bold">{{ content.title }}</div>
+          <div class="mt-2 text-xl">
+            {% if content.activity_type == 'game' %}
+            <div class="game-content">{{ content.content|safe }}</div>
+            {% else %} {{ content.content|safe }} {% if content.image %}
+            <div class="flex justify-center mt-4">
+              <img
+                src="{{ content.image.url }}"
+                alt=""
+                class="h-[15rem] w-[15rem] sm:h-[20rem] sm:w-[20rem] object-cover rounded-lg"
+              />
+            </div>
+            {% endif %} {% endif %}
+          </div>
         </div>
       </div>
       {% endfor %}
