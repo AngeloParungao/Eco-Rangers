@@ -38,6 +38,9 @@
           <div class="game-content">{{ content.content|safe }}</div>
           {% else %}
           <div>{{ content.content|safe }}</div>
+            {% if content.image %}
+              <img src="{{ content.image.url }}" alt="">
+            {% endif %}
           {% endif %}
         </div>
       </div>
