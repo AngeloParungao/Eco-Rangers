@@ -20,7 +20,7 @@ def home(request):
 
 def articles(request):
     articles = Article.objects.all().order_by(
-        '-date')  # Fetch all articles, newest first
+        'date')  # Fetch all articles, oldest first
 
     # Create a list of tuples with article and its related subtopics
     article_subtopics = [
