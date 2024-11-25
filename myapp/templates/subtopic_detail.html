@@ -29,7 +29,9 @@
 
       <!-- Iterate through related ActivityContents -->
       {% for content in activity.contents.all %}
-      <div class="content-block mt-4 p-4 bg-[#D8EFF7] rounded-lg">
+      <div
+        class="content-block mt-4 p-4 rounded-lg bg-gradient-to-b from-[#D8EFF7] to-[#9CBBFC] border-4 border-[#F9CD64]"
+      >
         <!-- Check if the content's activity_type is 'game' -->
         <div class="mt-2 text-[#4840A3]">
           <div class="text-lg font-bold">{{ content.title }}</div>
@@ -61,11 +63,11 @@
         <!-- PDF Download Button -->
         <a
           href="{{ activity.pdfs.first.pdf_file.url }}"
-          class="inline-block bg-[#9CBBFC] text-[#4840A3] py-3 px-6 rounded-full hover:bg-[#F9CD6A] hover:text-[#4840A3] transition duration-300 flex items-center justify-center transform hover:scale-100"
+          class="inline-block bg-[#9CBBFC] font-extrabold text-lg text-[#4840A3] py-3 px-6 rounded-full hover:bg-[#F9CD6A] hover:text-[#4840A3] transition duration-300 flex items-center justify-center transform hover:scale-100"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2"
+            class="h-7 w-7 mr-2"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
