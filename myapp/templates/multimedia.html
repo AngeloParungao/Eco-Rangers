@@ -24,16 +24,70 @@
     </p>
   </div>
 
+  <span class="md:text-2xl text-md font-bold text-[#F9CD6A] mb-4">Videos</span>
+  <div class="flex flex-wrap justify-center gap-2 w-full">
+    <div class="flex items-center justify-center p-1 rounded-lg bg-[#F9CD6A]">
+      <iframe class="md:w-[40rem] md:h-[25rem] aspect-video" src="https://www.youtube.com/embed/belXC_IoW4o"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="flex items-center justify-center p-1 rounded-lg bg-[#F9CD6A]">
+      <iframe class="md:w-[40rem] md:h-[25rem] aspect-video" src="https://www.youtube.com/embed/0Puv0Pss33M?si=hxg5IA6juRi2VPAJ"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="flex items-center justify-center p-1 rounded-lg bg-[#F9CD6A]">
+      <iframe class="md:w-[40rem] md:h-[25rem] aspect-video" src="https://www.youtube.com/embed/WmVLcj-XKnM?si=TYeKmLI6Os6F24Vl"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="flex items-center justify-center p-1 rounded-lg bg-[#F9CD6A]">
+      <iframe class="md:w-[40rem] md:h-[25rem] aspect-video" src="https://www.youtube.com/embed/QQYgCxu988s?si=oTF1N0OZwz5xfKSM"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+  
+  <span class="md:text-2xl text-md font-bold text-[#F9CD6A] mb-4 mt-8">Images</span>
+
+  <div class="self-start ml-10 mb-4 mt-8 items-center justify-center p-3 px-6 rounded-full bg-[#F9CD6A]">
+    <span class="md:text-lg text-sm font-bold text-black">The planet we want</span>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl w-full">
+    {% for image in nature %}
+    <div class="flex flex-col items-center border-4 border-[#F9CD6A] rounded-lg">
+      <img src="{% static image %}" alt="Infographic" class="rounded-md shadow-lg max-w-full h-full" />
+    </div>
+    {% endfor %}
+  </div>
+  
+  <div class="self-start ml-10 mb-4 mt-8 items-center justify-center p-3 px-6 rounded-full bg-[#F9CD6A]">
+    <span class="md:text-lg text-sm font-bold text-black">Causes that destroy the planet</span>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl w-full">
+    {% for image in causes %}
+    <div class="flex flex-col items-center border-4 border-[#F9CD6A] rounded-lg">
+      <img src="{% static image %}" alt="Infographic" class="rounded-md shadow-lg max-w-full h-full" />
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="self-start ml-10 mb-4 mt-8 items-center justify-center p-3 px-6 rounded-full bg-[#F9CD6A]">
+    <span class="md:text-lg text-sm font-bold text-black">What we can do to save the planet?</span>
+  </div>
   <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-8 max-w-6xl w-full"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl w-full"
   >
-    {% for image in images %}
-    <div class="flex flex-col items-center">
+    {% for image in solutions %}
+    <div class="flex flex-col items-center border-4 border-[#F9CD6A] rounded-lg">
       <img
         src="{% static image %}"
         alt="Infographic"
-        class="rounded-lg shadow-lg max-w-full h-auto"
-        width="600"
+        class="rounded-md shadow-lg max-w-full h-full"
       />
     </div>
     {% endfor %}
