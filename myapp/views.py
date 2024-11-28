@@ -6,12 +6,12 @@ from .models import Article, Subtopic
 
 # Create your views here.
 def home(request):
-    nature_images = ['images/nature/nature.png', 'images/nature/nature2.png',
-                     'images/nature/nature3.png', 'images/nature/nature4.png',
-                     'images/nature/nature5.png', 'images/nature/nature6.png',
-                     'images/nature/nature7.png', 'images/nature/nature8.png',
-                     'images/nature/nature9.png', 'images/nature/nature10.png',
-                     'images/nature/nature11.png', 'images/nature/nature12.png']
+    nature_images = ['images/solutions/nature.png', 'images/solutions/nature2.png',
+                     'images/solutions/nature3.png', 'images/solutions/nature4.png',
+                     'images/solutions/nature5.png', 'images/solutions/nature6.png',
+                     'images/solutions/nature7.png', 'images/solutions/nature8.png',
+                     'images/solutions/nature9.png', 'images/solutions/nature10.png',
+                     'images/solutions/nature11.png', 'images/solutions/nature12.png']
     images = ['images/globe.png']
     videos = ['videos/galaxy.mp4']
     gifs = ['videos/elf.gif']
@@ -55,5 +55,20 @@ def activities(request):
 
 
 def multimedia(request):
+    nature = ['images/nature/image.png', 'images/nature/image2.png', 
+              'images/nature/image3.png', 'images/nature/image4.png',
+              'images/nature/image5.png', 'images/nature/image6.png',
+              'images/nature/image7.png', 'images/nature/image8.png',
+              'images/nature/image9.png', 'images/nature/image10.png',]
+    causes = ['images/causes/destroyer.png', 'images/causes/destroyer2.png',
+              'images/causes/destroyer3.png', 'images/causes/destroyer4.png',
+              'images/causes/destroyer5.png', 'images/causes/destroyer6.png',
+              'images/causes/destroyer7.png',]
+    solutions = ['images/solutions/nature.png', 'images/solutions/nature2.png',
+                     'images/solutions/nature3.png', 'images/solutions/nature4.png',
+                     'images/solutions/nature5.png', 'images/solutions/nature6.png',
+                     'images/solutions/nature7.png', 'images/solutions/nature8.png',
+                     'images/solutions/nature9.png', 'images/solutions/nature10.png',
+                     'images/solutions/nature11.png', 'images/solutions/nature12.png']
     images = ['images/image.png']
-    return render(request, 'multimedia.html', {'images': images})
+    return render(request, 'multimedia.html', {'images': images, 'nature': nature, 'causes': causes, 'solutions': solutions})
