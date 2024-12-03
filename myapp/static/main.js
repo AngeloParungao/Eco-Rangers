@@ -95,6 +95,19 @@ function toggleTopics(articleId) {
     }
 }
 
+ function filterVideos() {
+    const selectedCategory = document.getElementById("video_category").value;
+    const videos = document.querySelectorAll("#video_container > div");
+
+    videos.forEach(video => {
+      const category = video.getAttribute("data-category");
+      if (selectedCategory === "all" || category === selectedCategory) {
+        video.style.display = "flex"; // Show the video
+      } else {
+        video.style.display = "none"; // Hide the video
+      }
+    });
+  }
 
 function openModal(src) {
     const modal = document.getElementById('imageModal');

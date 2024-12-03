@@ -24,32 +24,42 @@
     </p>
   </div>
 
-  <span class="md:text-2xl text-md font-bold text-[#F9CD6A] mb-4">Videos</span>
-  <div class="flex flex-wrap justify-center gap-2 w-full">
-    <div class="flex items-center justify-center p-1 rounded-lg bg-[#F9CD6A]">
-      <iframe class="md:w-[40rem] md:h-[25rem] aspect-video" src="https://www.youtube.com/embed/belXC_IoW4o"
+  <div class="flex items-center justify-between px-8 py-2 w-full">
+    <span class="md:text-2xl text-md font-bold text-[#F9CD6A] mb-4">Videos</span>
+    <div class="flex items-center gap-2">
+      <label for="category" class="text-[#F9CD6A] text-xl">Category:</label>
+      <select name="category" id="video_category" onchange="filterVideos()" class="bg-[#D8EFF7] text-[#4840A3] text-lg border-4 border-[#F9CD6A] rounded-xl px-4 py-2 cursor-pointer">
+        <option value="all">All</option>
+        <option value="save_nature">
+          Save Nature
+        </option>
+        <option value="nature">
+          Nature
+        </option>
+        <option value="issues">
+          Environmental Issues
+        </option>
+        <option value="weather">
+          Weather
+        </option>
+        <option value="phenomena">
+          Natural Phenomena
+        </option>
+        <option value="science">
+          Science
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="flex flex-wrap justify-center gap-2 w-full" id="video_container">
+    {% for video in youtube_videos %}
+    <div class="flex items-center justify-center p-1 rounded-lg bg-[#F9CD6A]" data-category="{{ video.category }}">
+      <iframe class="md:w-[40rem] md:h-[25rem] aspect-video" src="{{ video.url }}"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div class="flex items-center justify-center p-1 rounded-lg bg-[#F9CD6A]">
-      <iframe class="md:w-[40rem] md:h-[25rem] aspect-video" src="https://www.youtube.com/embed/0Puv0Pss33M?si=hxg5IA6juRi2VPAJ"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div class="flex items-center justify-center p-1 rounded-lg bg-[#F9CD6A]">
-      <iframe class="md:w-[40rem] md:h-[25rem] aspect-video" src="https://www.youtube.com/embed/WmVLcj-XKnM?si=TYeKmLI6Os6F24Vl"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div class="flex items-center justify-center p-1 rounded-lg bg-[#F9CD6A]">
-      <iframe class="md:w-[40rem] md:h-[25rem] aspect-video" src="https://www.youtube.com/embed/QQYgCxu988s?si=oTF1N0OZwz5xfKSM"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+      </div>
+      {% endfor %}
   </div>
   
   <span class="md:text-2xl text-md font-bold text-[#F9CD6A] mb-4 mt-8">Images</span>
