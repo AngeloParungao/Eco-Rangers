@@ -1,5 +1,6 @@
 from ast import Sub
 from re import sub
+from unicodedata import category
 from django.shortcuts import get_object_or_404, render
 from .models import Article, Subtopic
 
@@ -55,6 +56,32 @@ def activities(request):
 
 
 def multimedia(request):
+    youtube_videos = [
+                        {'category':'save_nature','url':'https://www.youtube.com/embed/6jQ7y_qQYUA?si=rm5m0Cbuwe0GGiSr'},
+                        {'category':'science','url':'https://www.youtube.com/embed/i_jiQzoQF5M?si=5iymQKTyYFSBArP0'}, 
+                        {'category':'save_nature','url':'https://www.youtube.com/embed/belXC_IoW4o'},
+                        {'category':'phenomena','url':'https://www.youtube.com/embed/S6BFw4ZURZQ?si=bxHDl6-nc1mOkYk0'},
+                        {'category':'save_nature','url':'https://www.youtube.com/embed/gEk6JLJNg0U?si=UD2-AqM5nzt6DE_H'}, 
+                        {'category':'nature','url':'https://www.youtube.com/embed/WmVLcj-XKnM?si=TYeKmLI6Os6F24Vl'}, 
+                        {'category':'issues','url':'https://www.youtube.com/embed/JaSe85Mcwp0?si=7jwvr4c2-DYIanG3'}, 
+                        {'category':'phenomena','url':'https://www.youtube.com/embed/ay416AyoqRU?si=OZ2Tr13jtgYK5zxi'},
+                        {'category':'nature','url':'https://www.youtube.com/embed/pkjJsYsy5cA?si=IgQrW7dNMj6CwGFu'}, 
+                        {'category':'phenomena','url':'https://www.youtube.com/embed/OCjl6tp8dnw?si=hhzxAuUE0qddsDQ1'},
+                        {'category':'science','url':'https://www.youtube.com/embed/zKXMaLP_T6I?si=CQupYhPjxAxi1KxU'}, 
+                        {'category':'save_nature','url':'https://www.youtube.com/embed/0Puv0Pss33M?si=hxg5IA6juRi2VPAJ'}, 
+                        {'category':'issues','url':'https://www.youtube.com/embed/-01T9e6VDWU?si=DOJC8Ps56lnI6E1k'},
+                        {'category':'save_nature','url':'https://www.youtube.com/embed/V0lQ3ljjl40?si=jEG_keC4TkC7cszW'}, 
+                        {'category':'weather','url':'https://www.youtube.com/embed/CXKj7bm4Ops?si=agFP_t3i26cAEfKi'}, 
+                        {'category':'science','url':'https://www.youtube.com/embed/Z00u4mu5Iz4?si=urZLkSjWTLkttTW4'}, 
+                        {'category':'issues','url':'https://www.youtube.com/embed/M9brPifwnkQ?si=Wuwl-u6DBhpgzzMW'}, 
+                        {'category':'nature','url':'https://www.youtube.com/embed/jpQnKYXr1vo?si=rxF83wiaRgwrKrkU'}, 
+                        {'category':'issues','url':'https://www.youtube.com/embed/OqHp03RRTDs?si=j_pfBwoSF5JtKgy-'}, 
+                        {'category':'nature','url':'https://www.youtube.com/embed/QQYgCxu988s?si=oTF1N0OZwz5xfKSM'},
+                        {'category':'weather','url':'https://www.youtube.com/embed/V0v1ogEYXmo?si=6-shSe4gFiL1IAUl'}, 
+                        {'category':'phenomena','url':'https://www.youtube.com/embed/q8eIwmSJP0o?si=xNSpRymH8kKUowkc'},
+                        {'category':'issues','url':'https://www.youtube.com/embed/t7Q7y_xjR5E?si=7-NkSSdOU9eyKuDc'}, 
+                        {'category':'issues','url':'https://www.youtube.com/embed/E5cVr3HdLa4?si=3yNfqdhu43a7CaFY'}, 
+                    ]
     nature = ['images/nature/image.png', 'images/nature/image2.png', 
               'images/nature/image3.png', 'images/nature/image4.png',
               'images/nature/image5.png', 'images/nature/image6.png',
@@ -71,4 +98,4 @@ def multimedia(request):
                      'images/solutions/nature9.png', 'images/solutions/nature10.png',
                      'images/solutions/nature11.png', 'images/solutions/nature12.png']
     images = ['images/image.png']
-    return render(request, 'multimedia.html', {'images': images, 'nature': nature, 'causes': causes, 'solutions': solutions})
+    return render(request, 'multimedia.html', {'youtube_videos': youtube_videos, 'images': images, 'nature': nature, 'causes': causes, 'solutions': solutions})
