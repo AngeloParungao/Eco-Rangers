@@ -30,27 +30,28 @@
       class="w-full h-[100%] flex flex-col items-center justify-center overflow-hidden z-10 transition-all ease-in duration-500"
       id="globe-container"
     >
-      <div id="elf-container">
-        <div class="flex flex-col bg-white rounded-full px-6 py-2 gap-1">
+      <div id="elf-container" class="flex flex-col items-center">
+        <div class="flex items-center bg-white rounded-full px-6 py-2 gap-1 animate-bounce [animation-duration:2s] cursor-pointer">
           <span
             id="elf-message"
             class="text-sm font-semibold text-black text-center"
-            >Hello, Eco-Warriors!</span
-          >
+            >Hello, Eco-Warriors!
+          </span>
+          <i id="arrow-indicator" class="ml-2 fas fa-rocket text-[#F9CD6A] animate-pulse [animation-duration:1s]"></i>
           <button
-            class="bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-full"
+            class="bg-blue-500 hover:bg-blue-600 text-white text-xs rounded-full py-2 px-4 animate-pulse [animation-duration:1.5s]"
             id="elf-button"
             onclick="toggleLoad()"
           >
             Start Exploring
           </button>
         </div>
-        <div class="flex h-[5rem] items-center justify-center mt-1">
+        <div class="flex h-[5rem] items-center justify-center">
           <img
-            src="{% static 'videos/elf.gif' %}"
+            src="{% static 'images/scout.png' %}"
             alt="Elf"
             loading="lazy"
-            class="h-[6rem]"
+            class="h-[5rem] animate-bounce [animation-duration:2s]"
             id="elf-image"
           />
         </div>
