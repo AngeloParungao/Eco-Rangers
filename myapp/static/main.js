@@ -1,6 +1,7 @@
 const navFullScreen = document.getElementById("navigation-full-screen");
 const welcomeText = document.getElementById("welcome-text");
 const elfContainer = document.getElementById("elf-container");
+const arrowIndicator = document.getElementById("arrow-indicator");
 const elfButton = document.getElementById("elf-button");
 const globeContainer = document.getElementById("globe-container");
 const globeImage = document.getElementById("globe-image");
@@ -19,6 +20,47 @@ let initialLoad = sessionStorage.getItem("initialLoad") === "true"; // Retrieve 
 
 // Initialize elements based on `initialLoad`
 window.addEventListener("DOMContentLoaded", () => {
+    
+    const girlMessage = document.getElementById("girl-message");
+    const boyMessage = document.getElementById("boy-message");
+
+    const girlMessageText = [
+        "This is some articles",
+        "That will help you",
+        "Learn more about",
+        "Our planet",
+        "As we grow",
+        "Together",
+    ];
+
+    const boyMessageText = [
+        "Let's play some fun games!",
+        "With our friends!",
+        "And our cats!",
+        "Together!",
+    ]
+
+    let girlMessageIndex = 0;
+    let boyMessageIndex = 0;
+
+    if (girlMessage) {
+        setInterval(() => {
+            // Update the text
+            girlMessage.innerText = girlMessageText[girlMessageIndex];
+            // Increment index and loop back to the start
+            girlMessageIndex = (girlMessageIndex + 1) % girlMessageText.length;
+        }, 2000); // Update every 2 seconds
+    }
+    if (boyMessage) {
+        setInterval(() => {
+            // Update the text
+            boyMessage.innerText = boyMessageText[boyMessageIndex];
+            // Increment index and loop back to the start
+            boyMessageIndex = (boyMessageIndex + 1) % boyMessageText.length;
+        }, 2000); // Update every 2 seconds
+    }
+
+
     if (initialLoad) {
         // When `initialLoad` is true
         welcomeText.classList.remove("opacity-0");
@@ -50,6 +92,7 @@ elfContainer.addEventListener("click", () => {
     }
     if (messageIndex === elfMessageText.length) {
         elfButton.classList.remove("hidden");
+        arrowIndicator.classList.add("hidden");
     }
 });
 
